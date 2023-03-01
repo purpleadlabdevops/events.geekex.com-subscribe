@@ -1,0 +1,61 @@
+@import '_fonts';
+@import '_functions';
+
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{
+  margin:0;
+  padding:0;
+  border:0;
+  vertical-align:baseline
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+ol,ul{list-style:none}
+table{
+  border-collapse: collapse;
+  border-spacing:0
+}
+
+*{
+  box-sizing: border-box;
+  font-family: 'PP Pangram Sans', sans-serif;
+}
+
+html, body{
+  line-height: 1.2;
+  font-size: 14px;
+  background: #000;
+  color: #fff;
+}
+
+img{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.container{
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  width: 1300px;
+}
+
+.btn{
+  &__group{
+    @media(min-width:576px){
+      display: flex;
+      justify-content: space-between;
+    }
+    & > button{
+      &:not(:first-child){
+        @media(max-width:575px){
+          margin-top: 30px;
+        }
+        @media(min-width:576px){
+          margin-left: clamp(30px, cqi(60), 60px);
+        }
+      }
+    }
+  }
+}
