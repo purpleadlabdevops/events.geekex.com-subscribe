@@ -22,7 +22,7 @@
           value="No, I Don't Want "
           class="btn__dark"
           arrow="right"
-          @click.prevent="window.location.href = 'https://geekex.com/';"
+          @click.prevent="goToGeekex"
         />
         <Button
           value="Yes, Subscribe"
@@ -76,6 +76,11 @@ export default {
   beforeCreate(){
     if(!localStorage.billing){
       window.location.href = "https://geekex.com/";
+    }
+  },
+  methods: {
+    goToGeekex(){
+      window.location.href = 'https://geekex.com/';
     }
   },
   mounted(){
