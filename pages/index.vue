@@ -28,7 +28,7 @@
           value="Yes, Subscribe"
           class="btn__default"
           arrow="right"
-          @click.prevent="$store.dispatch('global/addSubscriber')"
+          @click.prevent="goSubscribe"
         />
         </div>
       </div>
@@ -48,8 +48,8 @@ export default {
           src: 'https://www.bls29trk.com/scripts/sdk/everflow.js',
           callback: () => {
             EF.conversion({
-              offer_id: 166,
-              event_id: 314,
+              offer_id: 175,
+              event_id: 333,
               affiliate_id: EF.urlParameter('affid'),
               sub1: EF.urlParameter('sub1'),
               sub2: EF.urlParameter('sub2'),
@@ -80,7 +80,26 @@ export default {
   },
   methods: {
     goToGeekex(){
+      EF.conversion({
+        offer_id: 175,
+        event_id: 332,
+      })
+        .then(res => {
+          console.log('No')
+          console.dir(res);
+        })
       window.location.href = 'https://geekex.com/';
+    },
+    goSubscribe(){
+      this.$store.dispatch('global/addSubscriber')
+      EF.conversion({
+        offer_id: 175,
+        event_id: 331,
+      })
+        .then(res => {
+          console.log('Yes')
+          console.dir(res);
+        })
     }
   },
   mounted(){

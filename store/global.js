@@ -1472,6 +1472,9 @@ export const actions = {
       })
       .then(response => {
         if(response.data.result === "SUCCESS"){
+          EF.conversion({
+            offer_id: 175,
+          })
           console.log('Subscription SUCCESS! Thank You for a submitting.');
           window.location.href = 'https://geekex.com/';
         } else if(response.data.result === "ERROR"){
